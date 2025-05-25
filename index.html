@@ -3,27 +3,51 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta type="description" content="Mon portfolio étudiant" />
+    <meta type="description" content="Mon portfolio étudiant - Romain Fauthous" />
 
     <!--Fontawesome-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
     <!-- Boxicons -->
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <!-- Google Fonts -->
+
+    <!-- STYLES -->
+     <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting.css" />
     <link rel="stylesheet" href="styles/styles.css" type="text/css" />
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
     <!--Favicon-->
     <link rel="icon" type="image/png" href="img/portrait.jpg">
 
-    <!-- Animations de scroll -->
-    <script src="https://unpkg.com/scrollreveal"></script>
+    <!-- Animations GSAP -->
 
-    <title>Mon portfolio</title>
+      <!-- Lenis -->
+    <script src="https://unpkg.com/lenis@1.3.3/dist/lenis.min.js"></script> 
+     <!-- GSAP core -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+     <!-- Scroll Trigger -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <!-- Split Text -->
+    <script src="https://assets.codepen.io/16327/SplitText3.min.js"></script>
+     <!-- GSAP Draggable plugin -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Draggable.min.js"></script>
+    <!-- InertiaPlugin (pour l'inertie) -->
+    <script src="https://assets.codepen.io/16327/InertiaPlugin.min.js"></script>
+    <!-- ScrollReveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <!-- Splitting -->
+    <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
+    
+    
+    
+    <title>Romain Fauthous</title>
   </head>
 
   <body>
@@ -83,13 +107,23 @@
     <!-- HOME -->
     <main>
       <section class="slider" id="home"> 
+        <div class="theme-mode">
+          <i class="fa-solid fa-sun"></i>
+          <div class="switch">
+            <div class="switch-circle">
+            </div>
+          </div>
+          <i class="fa-solid fa-moon"></i>
+        </div>
+
         <div class="overlay"></div>
 
         <div class="home-content">
           <div class="home-left">
-            <h3>Bonjour, moi c'est</h3>
+            <h3>Bienvenue, moi c'est</h3>
             <h1>Romain Fauthous</h1>
             <h3>je suis <span>Développeur Web Full-Stack</span></h3>
+            <h3>et je souhaite démarrer une <span class="alternance">ALTERNANCE</span> à la <span class="alternance">RENTRÉE 2025 !</span></h3>
 
             <div class="social-icons">
               <a href="https://www.linkedin.com/in/romain-fauthous-828485182/"><i class="fa-brands fa-linkedin"></i></a>
@@ -104,7 +138,7 @@
           </div>
 
           <div class="home-right">
-            <img src="img/portrait.jpg" alt="Portrait">
+            <img src="img/portrait.jpg" alt="Portrait" id="portrait-home">
           </div>
         </div>
       </section>
@@ -113,22 +147,22 @@
 
       <!-- À PROPOS -->
       <section class="about" id="about">
-        <!-- <div class="about-img">
-          <img src="./images/jo-02.png" alt="" />
-        </div> -->
+        <div class="bg">
+          
+        </div>
 
         <div class="about-content">
           <h2>À <span>Propos</span> de moi</h2>
           <h3>Développeur web FULL-STACK</h3>
-          <p>Après un Master en Management et Marketing du Sport à Marseille en 2021 et une année d'aventure en Australie, j'ai décidé de changer complètement de cap pour me tourner vers un domaine qui me passionne : le développement web.
+          <p data-splitting="chars" class="text-reveal">Après un Master en Management et Marketing du Sport à Marseille en 2021 et une année d'aventure en Australie, j'ai décidé de changer complètement de cap pour me tourner vers un domaine qui me passionne : le développement web.</p>
 
-          J'ai commencé en autodidacte, simplement par curiosité, en créant mes premiers projets. Très vite, j'ai su que je voulais en faire mon métier. Pour passer à la vitesse supérieure, j'ai suivi une formation intensive à la 3W Academy, qui m'a permis d'acquérir de solides bases en développement web — HTML, CSS/SASS, JavaScript, PHP, MySQL — et de réaliser un site complet en architecture MVC.
+          <p data-splitting="chars" class="text-reveal">J'ai commencé en autodidacte, simplement par curiosité, en créant mes premiers projets. Très vite, j'ai su que je voulais en faire mon métier. Pour passer à la vitesse supérieure, j'ai suivi une formation intensive à la 3W Academy, qui m'a permis d'acquérir de solides bases en développement web — HTML, CSS/SASS, JavaScript, PHP, MySQL — et de réaliser un site complet en architecture MVC.</p>
 
-          Aujourd'hui, je poursuis mon apprentissage dans une formation de Concepteur Développeur d'Application Full Stack et je recherche une alternance à partir de la rentrée 2025, pour une durée de 12 mois (3 semaines en entreprise, 1 semaine en formation).
+          <p data-splitting="chars" class="text-reveal">Aujourd'hui, je poursuis mon apprentissage dans une formation de Concepteur Développeur d'Application Full Stack et je recherche une alternance à partir de la rentrée 2025, pour une durée de 12 mois (3 semaines en entreprise, 1 semaine en formation).</p>
 
-          Curieux, déterminé et passionné, je continue de monter en compétences avec un intérêt particulier pour les technologies modernes comme React et Node.js.
+          <p data-splitting="chars" class="text-reveal">Curieux, déterminé et passionné, je continue de monter en compétences avec un intérêt particulier pour les technologies modernes comme React et Node.js.</p>
           
-          Mon objectif : travailler sur des projets concrets, apprendre au contact des équipes, et devenir un développeur complet — à l'écoute, rigoureux et efficace.</p>
+          <p data-splitting="chars" class="text-reveal">Mon objectif : travailler sur des projets concrets, apprendre au contact des équipes, et devenir un développeur complet — à l'écoute, rigoureux et efficace.</p>
         </div>
         <a href="#contact" class="button-reverse">Contactez moi</a>
       </section>
@@ -256,7 +290,7 @@
         <!-- SOFTSKILLS -->
         <article>
           <h4>Soft Skills</h4>
-          <div class="category-content skills">
+          <div class="category-content skills soft">
             <div class="item-skills">
               <div>
                 <i class="fa-solid fa-bolt"></i>
@@ -301,13 +335,17 @@
         
         <article class="portfolio-container">
           <div class="cards">
-            <div class="image-frame">
-              <img src="img/site-padel/slide-1.png" alt="Page d'accueil du site de Padel">
-            </div>
-            <h3><i class="fa-solid fa-circle-check"></i> Site "from scratch"</h3>
-            <h3><i class="fa-solid fa-circle-check"></i> HTML / SASS / JAVASCRIPT / PHP / SQL</h3>
-            <div class="div-btn">
-              <button class="btn-modale" id="btnmodale-padel">En savoir plus <i class="fa-solid fa-arrow-right"></i></button>
+            <div class="card-inner">
+              <div class="content-card">
+                <div class="image-frame">
+                  <img src="img/site-padel/slide-1.png" alt="Page d'accueil du site de Padel">
+                </div>
+                <h3><i class="fa-solid fa-circle-check"></i> Site "from scratch"</h3>
+                <h3><i class="fa-solid fa-circle-check"></i> HTML / SASS / JAVASCRIPT / PHP / SQL</h3>
+                <div class="div-btn">
+                  <button class="btn-modale" id="btnmodale-padel">En savoir plus <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+              </div>
             </div>
           </div>
         </article>
@@ -394,5 +432,6 @@
     <script src="js/open-modals.js"></script>
     <script src="js/bottom-nav.js"></script>
     <script src="js/sections-animation.js"></script>
+    <script src="js/light-mode.js"></script>
   </body>
 </html>

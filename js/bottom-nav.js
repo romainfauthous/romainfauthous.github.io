@@ -6,7 +6,6 @@ let headerHeight;
 let navLinks;
 
 function scrollActive() {
-    console.log(header.offsetHeight);
     // position du scroll :
     const scrollY = window.pageYOffset;
 
