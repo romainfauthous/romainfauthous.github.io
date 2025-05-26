@@ -40,8 +40,6 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/InertiaPlugin.min.js"></script>
     <!-- ScrollReveal -->
     <script src="https://unpkg.com/scrollreveal"></script>
-    <!-- Splitting -->
-    <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
     
     
     
@@ -174,7 +172,7 @@
 
         <!-- HARD SKILLS -->
         <article>
-          <h4>Hard Skills</h4>
+          <h4 class="skills-family">Hard Skills</h4>
           <div class="category-content">
             <div class="front-content">
               <h4>Front-End</h4>
@@ -257,7 +255,7 @@
 
         <!-- OUTILS -->
         <article>
-          <h4>Outils</h4>
+          <h4 class="skills-family">Outils</h4>
           <div class="category-content tools">
             <div class="item-outils">
               <img src="img/vs-code.png" alt="Logo VS Code" class="colorize">
@@ -287,7 +285,7 @@
 
         <!-- SOFTSKILLS -->
         <article>
-          <h4>Soft Skills</h4>
+          <h4 class="skills-family">Soft Skills</h4>
           <div class="category-content skills soft">
             <div class="item-skills">
               <div>
@@ -332,6 +330,8 @@
         <h2>Mes <span>projets</span></h2>
         
         <article class="portfolio-container">
+          <div class="border-line left-line"></div>
+          <div class="border-line right-line"></div>
           <div class="cards">
             <div class="card-inner">
               <div class="content-card">
@@ -400,13 +400,17 @@
       <!-- CONTACTS -->
       <section class="contact" id="contact">
         <h2>Me <span>Contacter</span></h2>
-        <div class="contact-card">
+        <div class="contact-card card-left">
+          <div class="border-left"></div>
+          <div class="border-top"></div>
           <i class="bx bx-mail-send"></i>
           <h3>Email</h3>
           <a href="mailto:romain.fauthous@3wa.io" target="_blank" class="contact-button">Un mail par ici<i class='bx bx-right-arrow-alt contact-icon'></i></a>
         </div>
 
-        <div class="contact-card">
+        <div class="contact-card card-right">
+          <div class="border-right"></div>
+          <div class="border-bottom"></div>
           <i class="fa-brands fa-linkedin"></i>
           <h3>Linkedin</h3>
           <a href="https://www.linkedin.com/in/romain-fauthous-828485182/" class="contact-button">Envoyez moi un message sur Linkedin<i class='bx bx-right-arrow-alt contact-icon'></i></a>

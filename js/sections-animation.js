@@ -19,47 +19,24 @@ document.addEventListener("DOMContentLoaded", function() {
   sr.reveal('.social-icons a', {
     origin: 'left',
     distance: '500px',
-    delay: '500',
+    delay: '250',
     interval: '500'
   });
 
-  sr.reveal('#about', {
-    origin: 'left',
+  sr.reveal('.infos, .home-right', {
+    origin: 'bottom',
     easing: 'ease-in-out',
-    distance: '1500px'
-  });
+    duration: '1000',
+    delay: '1500',
+    distance: '50px',
+    scale: '0.7',
+  })
 
-  // Splitting
-  let selection = Splitting();
-  // console.log(selection);
-
-  selection.forEach(split => {
-    gsap.from(split.chars, {
-      opacity: 0,
-      y: 50,
-      rotation: 90,
-      stagger: 0.1,
-      scrollTrigger: {
-        trigger: split.el,
-        start: "top 70%",
-        end: "bottom 70%",
-        scrub: true
-      }
-    });
-  });
-  // Initialize a new Lenis instance for smooth scrolling
-  const lenis = new Lenis();
-  // Synchronize Lenis scrolling with GSAP's ScrollTrigger plugin
-  lenis.on('scroll', ScrollTrigger.update);
-  // Add Lenis's requestAnimationFrame (raf) method to GSAP's ticker
-  // This ensures Lenis's smooth scroll animation updates on each GSAP tick
-  gsap.ticker.add((time) => {
-    lenis.raf(time * 600); // Convert time from seconds to milliseconds
-  });
-  // Disable lag smoothing in GSAP to prevent any delay in scroll animations
-  gsap.ticker.lagSmoothing(0);
-
-
+  // sr.reveal('#about', {
+  //   origin: 'left',
+  //   easing: 'ease-in-out',
+  //   distance: '1500px'
+  // });
 
 
   // Skills
@@ -68,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function() {
   gsap.from(".skills h2", {
     scrollTrigger: {
       trigger: ".skills h2",
-      start: "top 85%",
+      start: "top 80%",
       toggleActions: "play none none reverse",
     },
     y: -50,
@@ -78,14 +55,14 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   // Animation des blocs de catégories
-  gsap.utils.toArray(".category-content").forEach((section) => {
+  gsap.utils.toArray(".category-content, .skills-family").forEach((section) => {
     gsap.from(section, {
       scrollTrigger: {
         trigger: section,
-        start: "top 90%",
+        start: "top 70%",
         toggleActions: "play reverse play reverse",
       },
-      y: -80,
+      y: -100,
       opacity: 0,
       duration: 1,
       ease: "back.out(1.7)",
@@ -96,28 +73,101 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
   // Projets
-
-  const cards = document.querySelectorAll('.cards');
-
-  cards.forEach(card => {
-    const cardInner = card.querySelector('.card-inner');
-
-    card.addEventListener('mousemove', e => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-
-      const rotateX = (y - centerY) / 10;
-      const rotateY = (x - centerX) / -10;
-
-      cardInner.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+  if (window.innerWidth > 750) {
+    // Animation de la ligne gauche
+    gsap.from(".left-line", {
+      x: -500,
+      rotate: -300,
+      opacity: 0,
+      duration: 1.5,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".portfolio-container",
+        start: "top 80%",
+        end: "bottom 20%",
+        toggleActions: "play reverse play reverse"
+      }
     });
 
-    card.addEventListener('mouseleave', () => {
-      cardInner.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
+    // Animation de la ligne droite
+    gsap.from(".right-line", {
+      x: 500,
+      rotate: 300,
+      opacity: 0,
+      duration: 1.5,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".portfolio-container",
+        start: "top 80%",
+        end: "bottom 20%",
+        toggleActions: "play reverse play reverse"
+      }
     });
+  }
+
+  if (window.innerWidth > 750) {
+    const cards = document.querySelectorAll('.cards');
+
+    cards.forEach(card => {
+      const cardInner = card.querySelector('.card-inner');
+
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = (y - centerY) / 8;
+        const rotateY = (x - centerX) / -8;
+
+        cardInner.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        cardInner.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
+      });
+    });
+  }
+
+  // Carrousel
+  
+
+
+
+
+
+
+  // Contact
+  const scrollSettings = {
+    trigger: ".contact",
+    start: "top 70%",
+    end: "top 10%",
+    scrub: true
+  };
+
+  // Bordure gauche (verticale PUIS horizontale)
+  const tlLeft = gsap.timeline({ scrollTrigger: scrollSettings });
+
+  tlLeft.to(".card-left .border-left", {
+    height: "100%",
+    ease: "none"
+  })
+  .to(".card-left .border-top", {
+    width: "100%",
+    ease: "none"
+  });
+
+  // Bordure droite (verticale PUIS horizontale)
+  const tlRight = gsap.timeline({ scrollTrigger: scrollSettings });
+
+  tlRight.to(".card-right .border-right", {
+    height: "100%",
+    ease: "none"
+  })
+  .to(".card-right .border-bottom", {
+    width: "100%",
+    ease: "none"
   });
 
 })

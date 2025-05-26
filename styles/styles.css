@@ -640,7 +640,13 @@ h5 {
   flex-direction: column;
   align-items: center;
   width: 100%;
+  position: relative;
 }
+
+.border-line {
+  display: none;
+}
+
 
 .cards {
   border-radius: 2rem;
@@ -919,19 +925,60 @@ h5 {
   flex-direction: column;
   align-items: center;
   transition: 0.25s ease;
+
+  overflow: hidden;
+  position: relative;
 }
 
-.contact-card:nth-of-type(1) {
-  border-top: 2px solid var(--blue);
-  border-left: 2px solid var(--blue); 
-  border-top-left-radius: 1rem;
+/* Bordures animées */
+.card-left .border-left,
+.card-right .border-right,
+.card-left .border-top,
+.card-right .border-bottom {
+  position: absolute;
+  background-color: var(--blue);
+  z-index: 1;
 }
 
-.contact-card:nth-of-type(2) {
-  border-bottom: 2px solid var(--blue);
-  border-right: 2px solid var(--blue); 
-  border-bottom-right-radius: 1rem;
+/* Carte gauche */
+.card-left .border-left {
+  left: 0;
+  bottom: 0;
+  width: 2px;
+  height: 0;
+  border-radius: 0;
 }
+
+.card-left .border-top {
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  border-radius: 0;
+}
+
+/* Carte droite */
+.card-right .border-right {
+  right: 0;
+  top: 0;
+  width: 2px;
+  height: 0;
+  border-radius: 0;
+}
+
+.card-right .border-bottom {
+  bottom: 0;
+  right: 0;
+  height: 2px;
+  width: 0;
+  border-radius: 0;
+}
+
+
+
+
+
+
 
 .contact-card:hover {
   transform: translateY(-6px);
@@ -1153,7 +1200,25 @@ footer:hover .footer-txt p {
     position: relative;
   }
 
-  .portfolio-container::before,
+  .border-line {
+  position: absolute;
+  display: block;
+  top: 25%;
+  height: 50%;
+  width: 2px;
+  background: var(--blue);
+  z-index: 1;
+}
+
+.left-line {
+  left: 0;
+}
+
+.right-line {
+  right: 0;
+}
+
+  /* .portfolio-container::before,
   .portfolio-container::after {
     content: "";
     position: absolute;
@@ -1168,7 +1233,7 @@ footer:hover .footer-txt p {
   }
   .portfolio-container::after {
     right: 0; 
-  }
+  } */
 }
 
 
