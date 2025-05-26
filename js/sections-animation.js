@@ -27,9 +27,10 @@ document.addEventListener("DOMContentLoaded", function() {
     origin: 'bottom',
     easing: 'ease-in-out',
     duration: '1000',
-    delay: '1500',
+    delay: '0',
     distance: '50px',
     scale: '0.7',
+    reset: true
   })
 
   // sr.reveal('#about', {
