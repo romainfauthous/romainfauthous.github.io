@@ -435,6 +435,7 @@ header {
 
 .infos {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 1.5rem;
@@ -1139,7 +1140,14 @@ footer:hover .footer-txt p {
   h5 {
     font-size: 1.7rem;
   }
-
+  
+  .infos {
+    flex-direction: row;
+  }
+  
+  .infos a {
+    min-width: 19rem;
+  }
   /* SECTION ABOUT */
   .about-content {
     text-align: justify;
@@ -1239,6 +1247,5 @@ footer:hover .footer-txt p {
 
 /* DESKTOP */
 @media screen and (min-width: 1020px) {
-
-
+  
 }
