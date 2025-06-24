@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function() {
       scrollTrigger: {
         trigger: ".portfolio-container",
         start: "top 80%",
-        end: "bottom 20%",
+        end: "bottom 5%",
         toggleActions: "play reverse play reverse"
       }
     });
@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function() {
       scrollTrigger: {
         trigger: ".portfolio-container",
         start: "top 80%",
-        end: "bottom 20%",
+        end: "bottom 5%",
         toggleActions: "play reverse play reverse"
       }
     });
